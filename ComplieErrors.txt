@@ -1,0 +1,168 @@
+Arduino: 1.8.5 (Windows 10), Board: "Arduino Due (Programming Port)"
+
+In file included from \Arduino\libraries\RTCtime\examples\DS3231_Alarms_and_Temperature\DS3231_Alarms_and_Temperature.ino:93:0:
+\Arduino\libraries\RTCtime/RtcDS3231.h: In member function 'void RtcDS3231<T_WIRE_METHOD>::SetTimeUX(time_t*)':
+\Arduino\libraries\RTCtime/RtcDS3231.h:307:29: error: 'UNIX_OFFSET' was not declared in this scope
+
+       time_t now = *UXnow - UNIX_OFFSET;
+
+                             ^
+
+\Arduino\libraries\RTCtime/RtcDS3231.h: In member function 'time_t RtcDS3231<T_WIRE_METHOD>::GetTime()':
+\Arduino\libraries\RTCtime/RtcDS3231.h:343:28: error: there are no arguments to 'mk_gmtime' that depend on a template parameter, so a declaration of 'mk_gmtime' must be available [-fpermissive]
+       return mk_gmtime(&now);
+
+                            ^
+
+\Arduino\libraries\RTCtime/RtcDS3231.h:343:28: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+\Arduino\libraries\RTCtime/RtcDS3231.h: In member function 'time_t RtcDS3231<T_WIRE_METHOD>::GetTimeUX()':
+\Arduino\libraries\RTCtime/RtcDS3231.h:354:27: error: 'UNIX_OFFSET' was not declared in this scope
+
+       return (GetTime() + UNIX_OFFSET);
+
+                           ^
+\Arduino\libraries\RTCtime\examples\DS3231_Alarms_and_Temperature\DS3231_Alarms_and_Temperature.ino: At global scope:
+DS3231_Alarms_and_Temperature:94: error: 'RtcDS3231<TwoWire> Rtc' redeclared as different kind of symbol
+
+   RtcDS3231<myWire> Rtc(I2C);
+
+                            ^
+
+In file included from \AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3x8e.h:288:0,
+                 from \AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/sam3xa.h:44,
+                 from \AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3.h:59,
+                 from \AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam.h:198,
+                 from \AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/libsam/chip.h:25,
+                 from \AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\cores\arduino/Arduino.h:42,
+                 from sketch\DS3231_Alarms_and_Temperature.ino.cpp:1:
+
+\AppData\Local\Arduino15\packages\arduino\hardware\sam\1.6.11\system/CMSIS/Device/ATMEL/sam3xa/include/component/component_rtc.h:56:3: error: previous declaration of 'typedef struct Rtc Rtc'
+
+ } Rtc;
+
+   ^
+
+\Arduino\libraries\RTCtime\examples\DS3231_Alarms_and_Temperature\DS3231_Alarms_and_Temperature.ino: In function 'void setup()':
+
+DS3231_Alarms_and_Temperature:111: error: expected unqualified-id before '.' token
+
+   Rtc.Begin();
+
+      ^
+
+DS3231_Alarms_and_Temperature:63: error: 'ONE_HOUR' was not declared in this scope
+
+ #define MY_TIMEZONE_IN_SECONDS (MY_TIMEZONE * ONE_HOUR)
+
+                                               ^
+
+\Arduino\libraries\RTCtime\examples\DS3231_Alarms_and_Temperature\DS3231_Alarms_and_Temperature.ino:112:12: note: in expansion of macro 'MY_TIMEZONE_IN_SECONDS'
+
+   set_zone(MY_TIMEZONE_IN_SECONDS);
+
+            ^
+
+DS3231_Alarms_and_Temperature:112: error: 'set_zone' was not declared in this scope
+
+   set_zone(MY_TIMEZONE_IN_SECONDS);
+
+                                  ^
+
+DS3231_Alarms_and_Temperature:142: error: expected unqualified-id before '.' token
+
+     Rtc.SetTime(&compiled_time_t);
+
+        ^
+
+DS3231_Alarms_and_Temperature:146: error: expected primary-expression before '.' token
+
+   if (!Rtc.GetIsRunning())
+
+           ^
+
+DS3231_Alarms_and_Temperature:149: error: expected unqualified-id before '.' token
+
+     Rtc.SetIsRunning(true);
+
+        ^
+
+DS3231_Alarms_and_Temperature:153: error: expected primary-expression before '.' token
+
+   time_t now = Rtc.GetTime();
+
+                   ^
+
+DS3231_Alarms_and_Temperature:159: error: expected unqualified-id before '.' token
+
+     Rtc.SetTime(&compiled_time_t);
+
+        ^
+
+DS3231_Alarms_and_Temperature:163: error: expected unqualified-id before '.' token
+
+   Rtc.Enable32kHzPin(false);
+
+      ^
+
+DS3231_Alarms_and_Temperature:166: error: expected unqualified-id before '.' token
+
+   Rtc.SetSquareWavePin(DS3231SquareWavePin_ModeAlarmBoth);
+
+      ^
+
+DS3231_Alarms_and_Temperature:171: error: expected unqualified-id before '.' token
+
+   Rtc.SetAlarmOne(alarm1);
+
+      ^
+
+DS3231_Alarms_and_Temperature:176: error: expected unqualified-id before '.' token
+
+   Rtc.SetAlarmTwo(alarm2);
+
+      ^
+
+DS3231_Alarms_and_Temperature:179: error: expected unqualified-id before '.' token
+
+   Rtc.LatchAlarmsTriggeredFlags();
+
+      ^
+
+\Arduino\libraries\RTCtime\examples\DS3231_Alarms_and_Temperature\DS3231_Alarms_and_Temperature.ino: In function 'void loop()':
+
+DS3231_Alarms_and_Temperature:220: error: expected primary-expression before '.' token
+
+     DS3231AlarmFlag alarm_flag = Rtc.LatchAlarmsTriggeredFlags();
+
+                                     ^
+
+DS3231_Alarms_and_Temperature:226: error: expected primary-expression before '.' token
+
+       if (Rtc.IsDateTimeValid())
+
+              ^
+
+DS3231_Alarms_and_Temperature:230: error: expected unqualified-id before '.' token
+
+       Rtc.GetLocalTime(&local_tm);                  // GetLocalTime() compiles a "struct tm" pointer with local time
+
+          ^
+
+DS3231_Alarms_and_Temperature:232: error: 'isotime' was not declared in this scope
+
+       strcpy(local_timestamp, isotime(&local_tm));  // We use the standard isotime() function to build the ISO timestamp
+
+                                                ^
+
+DS3231_Alarms_and_Temperature:252: error: expected primary-expression before '.' token
+
+       float temperature = Rtc.GetTemperature();
+
+                              ^
+exit status 1
+'RtcDS3231<TwoWire> Rtc' redeclared as different kind of symbol
+
+This report would have more information with
+"Show verbose output during compilation"
+option enabled in File -> Preferences.
+
