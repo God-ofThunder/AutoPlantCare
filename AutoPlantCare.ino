@@ -1,4 +1,4 @@
-#include "mainProgram.h"
+#include "automatic.h"
 #include "serialInterface.h"
 
 void setup()
@@ -16,9 +16,9 @@ void loop()
 	if(manualMode == false){
 		toggleLightWhenTime();
 		mesureSoilMoistureWhenTime();
-		//resets clock if its a new day
-		resetClock();
 	}
+	//resets clock if its a new day
+	resetClock();
 	clock += millis()-startTime;
 
 }

@@ -5,10 +5,12 @@ void setSerial();
 void resetSerial();
 void printClock();
 void printIsLightOn();
+void printLightOnPeriod();
 void printIsPumpOn();
 int getIntIndputFromUser();
-int* getTimeFromUser();
+struct Time getTimeFromUser();
 void getIndput();
+void printMode();
 void printHelp();
 void handelCommand(String command);
 #endif
